@@ -1,0 +1,9 @@
+.well
+  %strong
+    =link_to location[:name], location_path(location[:id])
+  .pull-right
+    =link_to "Unfollow", unfollow_location_path(location[:id]), :class => "btn btn-small", :method => :post
+  %p
+    =location[:latitude]
+    ,
+    =location[:longitude]
