@@ -1,0 +1,3 @@
+class AB < ActiveRecord::Base
+  # attr_accessible :title, :body
+end

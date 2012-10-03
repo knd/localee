@@ -11,9 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003005251) do
+ActiveRecord::Schema.define(:version => 20121003141427) do
 
-  create_table "follows", :force => true do |t|
+  create_table "a_bs", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "following_locations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "location_id"
     t.datetime "created_at",  :null => false
@@ -29,11 +34,24 @@ ActiveRecord::Schema.define(:version => 20121003005251) do
   end
 
   create_table "posts", :force => true do |t|
-    t.text     "text"
-    t.integer  "user_id"
+    t.string   "text"
     t.integer  "location_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "students", :force => true do |t|
+    t.integer  "room_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

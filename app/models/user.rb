@@ -16,10 +16,8 @@ class User < ActiveRecord::Base
   #  TODO: you may optionally add code here  #
   ############################################
   has_many :posts
-
-  has_many :follows
-  has_many :locations, :through => :follows
-
+  has_many :following_locations
+  has_many :locations, :through => :following_locations
 
   def to_hash
     {

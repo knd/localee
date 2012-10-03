@@ -1,13 +1,10 @@
 class Location < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :name
-
-  validates :name, :presence => true
-  validates :latitude, :presence => true
-  validates :longitude, :presence => true
-
+  # attr_accessible :title, :body
+  
   has_many :posts
-
-  has_many :follows
-  has_many :users, :through => :follows
-
+  has_many :following_locations
+  has_many :users, :through => :following_locations
+  validates :longitude, :presence => true
+  validates :latitude, :presence => true
+  validates :name, :presence => true
 end
