@@ -7314,3 +7314,19 @@ Served asset /application.css - 304 Not Modified (1ms)
 Started GET "/assets/application.js" for 127.0.0.1 at 2012-10-03 13:57:17 -0700
 Served asset /application.js - 304 Not Modified (27ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120905195452)
+Migrating to CreateLocations (20121003003731)
+Migrating to CreatePosts (20121003005224)
+Migrating to CreateFollowingLocations (20121003005250)
+  [1m[35m (0.7ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("a_bs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("following_locations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("locations")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("rooms")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("students")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+Connecting to database specified by database.yml
