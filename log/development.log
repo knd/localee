@@ -9419,3 +9419,22 @@ Served asset /application.css - 304 Not Modified (4ms)
 
 Started GET "/assets/application.js" for 127.0.0.1 at 2012-10-03 20:27:45 -0700
 Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/reports" for 127.0.0.1 at 2012-10-03 20:30:37 -0700
+Processing by AppController#reports_index as HTML
+  [1m[36m (1.9ms)[0m  [1mSELECT u.name AS name, COUNT(*) AS num_posts FROM users u,posts p WHERE u.id=p.user_id GROUP BY u.id ORDER BY num_posts DESC LIMIT 5[0m
+  [1m[35m (1.7ms)[0m  SELECT l.name AS name, COUNT(DISTINCT u.id) AS num_users FROM users u, locations l, posts p WHERE p.user_id=u.id AND p.location_id=l.id GROUP BY l.id HAVING num_users>=2 ORDER BY num_users DESC LIMIT 5
+  [1m[36m (1.0ms)[0m  [1mSELECT u.name AS name, COUNT(*) AS num_locations FROM users u, following_locations f WHERE f.location_id IN (SELECT l.id FROM locations l, posts p WHERE l.id=p.location_id GROUP BY l.id HAVING COUNT(*)>=2) AND u.id=f.user_id GROUP BY u.id ORDER BY num_locations DESC LIMIT 5[0m
+  Rendered reports/index.html.haml within layouts/application (18.9ms)
+  Rendered application/_header_guest.html.haml (1.9ms)
+  Rendered application/_header.html.haml (17.7ms)
+Completed 200 OK in 109ms (Views: 66.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-10-03 20:30:37 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-10-03 20:30:37 -0700
+Served asset /application.js - 304 Not Modified (14ms)
