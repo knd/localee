@@ -67,6 +67,7 @@ class AppQuery
     @p.each do |post|
       @posts.push({:author_id => post.user_id, :author => User.find(post.user_id).name, :text => post.text, :created_at => post.created_at, :location => @location})
     end
+    @posts=@posts.sort_by{|key| key[:created_at]}.reverse
   end
 
   # Purpose: Show the current user's stream of posts from all the locations the user follows
@@ -96,6 +97,7 @@ class AppQuery
         @posts.push(p)
       end
     end
+    @posts=@posts.sort_by{|key| key[:created_at]}.reverse
   end
 
   # Purpose: Retrieve the locations within a GPS bounding box
